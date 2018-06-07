@@ -1,6 +1,4 @@
 from collections import deque
-import copy
-from collections import deque
 from math import floor
 
 def rotate(given_array, n):
@@ -21,22 +19,19 @@ def rotate2(given_array, n):
 
     for i in range(floor(n/2)):
         for j in range(floor((n+1)/2)):
-            for k in range(4):
+            queue.append(given_array[i][j])
+
+            for _ in range(3):
+                i, j = rotated_index(i, j, n)
                 queue.append(given_array[i][j])
-                i, j = rotated_index(i, j, n)
-
-            queue.rotate(1)
-
-            for k in range(4):
                 given_array[i][j] = queue.popleft()
-                i, j = rotated_index(i, j, n)
+
+            i, j = rotated_index(i, j, n)
+            given_array[i][j] = queue.popleft()
 
     return given_array
 
 
-# NOTE: Feel free to use the following function for testing.
-# It converts a 2-dimensional array (a list of lists) into
-# an easy-to-read string format.
 def to_string(given_array):
     list_rows = []
     for row in given_array:
