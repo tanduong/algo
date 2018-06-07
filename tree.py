@@ -14,7 +14,7 @@ def is_bst(node, lower_lim=None, upper_lim=None):
     return (not lower_lim or node.value > lower_lim) and \
            (not upper_lim or node.value < upper_lim) and \
            (not node.left or is_bst(node.left, lower_lim=lower_lim, upper_lim=node.value)) and \
-           (not node.right or is_bst(node.right, ower_lim=node.value, upper_lim=upper_lim))
+           (not node.right or is_bst(node.right, lower_lim=node.value, upper_lim=upper_lim))
 
 def create_tree(mapping, head_value):
     head = Node(head_value)
