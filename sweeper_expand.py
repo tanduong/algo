@@ -30,9 +30,6 @@ def click(field, num_rows, num_cols, given_i, given_j):
     return field
 
 
-# NOTE: Feel free to use the following function for testing.
-# It converts a 2-dimensional array (a list of lists) into
-# an easy-to-read string format.
 def to_string(given_array):
     list_rows = []
     for row in given_array:
@@ -51,7 +48,7 @@ class TestRotation(unittest.TestCase):
                   [0, 1, 1, 1, 0],
                   [0, 1, -1, 1, 0]]
 
-        # self.assertEqual(click(field1, 3, 5, 2, 2), result1)
+        self.assertEqual(click(field1, 3, 5, 2, 2), result1)
 
         result2 = [[-2, -2, -2, -2, -2],
                    [-2, 1, 1, 1, -2],
@@ -60,12 +57,3 @@ class TestRotation(unittest.TestCase):
         print(to_string(click(field1, 3, 5, 1, 4)))
         print(to_string(result2))
         self.assertEqual(click(field1, 3, 5, 1, 4), result2)
-
-    # def test_four(self):
-    #     self.assertEqual(is_one_away("abcdef", "abccef"), True)
-
-    # def test_two(self):
-    #     self.assertEqual(is_one_away("abde", "abcde"), True)
-
-    # def test_three(self):
-    #     self.assertEqual(is_one_away("a", "a"), True)
