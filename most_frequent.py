@@ -1,6 +1,5 @@
 import unittest
 from collections import Counter
-from sets import Set
 
 def most_frequent(arr):
     try:

@@ -20,13 +20,13 @@ def rotate2(given_array, n):
     for i in range(floor(n/2)):
         for j in range(floor((n+1)/2)):
             queue.append(given_array[i][j])
+            i, j = rotated_index(i, j, n)
 
             for _ in range(3):
-                i, j = rotated_index(i, j, n)
                 queue.append(given_array[i][j])
                 given_array[i][j] = queue.popleft()
+                i, j = rotated_index(i, j, n)
 
-            i, j = rotated_index(i, j, n)
             given_array[i][j] = queue.popleft()
 
     return given_array
